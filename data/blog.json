@@ -1,0 +1,21 @@
+{
+  "title": "Blog",
+  "description": "Break News",
+  "page_content": {
+    "field_1": {
+      "title": "First News",
+      "author": "Alex Bu",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "field_2": {
+      "title": "Second  News",
+      "author": "Alex Boba",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "field_3": {
+      "title": "Third News",
+      "author": "Dima Uchkin",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    }
+  }
+}

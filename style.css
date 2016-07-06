@@ -1,2 +1,29 @@
 * {  }
 body { margin: 0; padding: 0;}
+
+form.form {
+    padding: 20px;
+    border: 1px dotted red;
+}
+form.form label {
+    display: block;
+    padding: 10px;
+}
+menu {
+
+}
+menu li {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px;
+    border: 1px solid black;
+    list-style: none;
+}
+menu li a {
+    text-decoration: none;
+    color: black;
+    font: bold 12px Arial;
+}
+menu li a:hover {
+    text-decoration: underline;
+}
