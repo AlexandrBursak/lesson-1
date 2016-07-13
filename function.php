@@ -9,12 +9,21 @@ function getContent ($file) {
     return json_decode($content, true);
 }
 
+function getTpl ($file) {
+    return file_get_contents($file);
+}
+
 function getTemplate() {
     return file_get_contents('template.html');
 }
 
 function parseNavigation($content, $data) {
     $content = str_replace("[navigation]", $data, $content);
+    return $content;
+}
+
+function parseAdditional($content, $data) {
+    $content = str_replace("[additional_content]", $data, $content);
     return $content;
 }
 
@@ -30,8 +39,11 @@ function showContent($content) {
     echo $content;
 }
 
-function parseForm($content, $data) {
-    $form = '<form method="post" class="form">';
+function parseForm($content, $data, $action = '') {
+    if ($action) {
+        $action = ' action="' . $action . '"';
+    }
+    $form = '<form method="post" class="form"'.$action.' enctype="multipart/form-data">';
     foreach ($data as $value) {
         switch ($value['type']) {
             case 'password':

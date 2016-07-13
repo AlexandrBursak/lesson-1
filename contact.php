@@ -2,12 +2,13 @@
 include_once('function.php');
 include_once('navigation.php');
 
-$file = 'http://demjan.890m.com/resource/contact.json';
+$file = './data/contact.json';
 $data = getContent($file);
 $content = getTemplate();
 $content = parseNavigation($content, $navContent);
 if (isset($data['page_content'])) {
-    $content = parseForm($content, $data['page_content']);
+    $action = './action/contact.php';
+    $content = parseForm($content, $data['page_content'], $action);
 }
 $content = parseContent($content, $data);
 showContent($content);

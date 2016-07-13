@@ -1,6 +1,6 @@
 <?php
 
-$file = 'http://demjan.890m.com/resource/navigation.json';
+$file = './data/navigation.json';
 $navigation = getContent($file);
 
 $navContent = '<nav><menu>';
