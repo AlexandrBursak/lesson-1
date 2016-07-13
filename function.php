@@ -50,6 +50,9 @@ function parseForm($content, $data, $action = '') {
             case 'text':
                 $form.= '<label>'.$value['title'].'<input name="'.$value['name'].'" type="'.$value['type'].'"></label>';
                 break;
+            case 'file':
+                $form.= '<label>'.$value['title'].'<input name="'.$value['name'].'" type="'.$value['type'].'"></label>';
+                break;
             case 'textarea':
                 $form.= '<label>'.$value['title'].'<textarea name="'.$value['name'].'"></textarea></label>';
                 break;
