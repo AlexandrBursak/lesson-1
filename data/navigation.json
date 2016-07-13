@@ -14,5 +14,9 @@
   "menu_4": {
     "title": "Testimonial",
     "link": "testimonial.php"
+  },
+  "menu_4": {
+    "title": "Gallery",
+    "link": "gallery.php"
   }
 }
