@@ -48,13 +48,11 @@ function parseForm($content, $data, $action = '') {
         switch ($value['type']) {
             case 'password':
             case 'text':
-                $form.= '<label>'.$value['title'].'<input name="'.$value['name'].'" type="'.$value['type'].'"></label>';
-                break;
             case 'file':
-                $form.= '<label>'.$value['title'].'<input name="'.$value['name'].'" type="'.$value['type'].'"></label>';
+                $form.= '<label>'.$value['title'].' <input name="'.$value['name'].'" type="'.$value['type'].'"></label>';
                 break;
             case 'textarea':
-                $form.= '<label>'.$value['title'].'<textarea name="'.$value['name'].'"></textarea></label>';
+                $form.= '<label>'.$value['title'].' <textarea name="'.$value['name'].'"></textarea></label>';
                 break;
             case 'button':
             case 'submit':
