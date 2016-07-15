@@ -27,3 +27,8 @@ menu li a {
 menu li a:hover {
     text-decoration: underline;
 }
+
+.picture {
+    display: inline-block;
+    width: 45%;
+}

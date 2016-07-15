@@ -15,4 +15,4 @@ if ($_FILES['file']['error'] == 0) {
     }
 
 }
-header('Location: /project_1/gallery.php');
+header("Location: /".ROOT_PATH."gallery.php");
