@@ -32,6 +32,7 @@
   },
   "menu_6": {
     "title": "Login",
-    "link": "?page=login"
+    "link": "?page=login",
+    "access": 0
   }
 }
