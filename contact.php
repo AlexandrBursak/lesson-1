@@ -1,6 +1,4 @@
 <?php
-include_once('function.php');
-include_once('navigation.php');
 
 $file = './data/contact.json';
 $data = getContent($file);
@@ -11,4 +9,3 @@ if (isset($data['page_content'])) {
     $content = parseForm($content, $data['page_content'], $action);
 }
 $content = parseContent($content, $data);
-showContent($content);

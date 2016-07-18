@@ -18,6 +18,16 @@ menu li {
     padding: 5px;
     border: 1px solid black;
     list-style: none;
+    position: relative;
+}
+menu li ul {
+    position: absolute;
+    top: 15px;
+    left: -45px;
+    display: none;
+}
+menu li:hover > ul {
+    display: block;
 }
 menu li a {
     text-decoration: none;
@@ -31,4 +41,23 @@ menu li a:hover {
 .picture {
     display: inline-block;
     width: 45%;
+}
+
+.scrollToTop{
+    width:100px;
+    height:130px;
+    padding:10px;
+    text-align:center;
+    background: whiteSmoke;
+    font-weight: bold;
+    color: #444;
+    text-decoration: none;
+    position:fixed;
+    bottom:20px;
+    right:40px;
+    display:none;
+    background: url('http://www.paulund.co.uk/wp-content/uploads/2011/11/1321797631_Arrow-Up.png') no-repeat 0 20px;
+}
+.scrollToTop:hover{
+    text-decoration:none;
 }

@@ -3,11 +3,16 @@
   "description": "Popular pictures",
   "page_content": {
     "field_1": {
+      "name": "page",
+      "type": "hidden",
+      "value": "upload"
+    },
+    "field_2": {
       "title": "Name file",
       "name": "title",
       "type": "text"
     },
-    "field_2": {
+    "field_3": {
       "title": "File",
       "name": "file",
       "type": "file"

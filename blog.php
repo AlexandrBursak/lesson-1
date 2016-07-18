@@ -1,6 +1,4 @@
 <?php
-include_once('function.php');
-include_once('navigation.php');
 
 $current = 1;
 $per_page = 2;
@@ -47,7 +45,3 @@ if (isset($data['page_content'])) {
 }
 
 $content = parseContent($content, $data);
-showContent($content);
-
-
-

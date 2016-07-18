@@ -1,6 +1,4 @@
 <?php
-include_once('function.php');
-include_once('navigation.php');
 
 $file = './data/testimonial.json';
 $data = getContent($file);
@@ -21,7 +19,6 @@ if (isset($data['page_content'])) {
 }
 
 $content = parseContent($content, $data);
-showContent($content);
 
 
 
