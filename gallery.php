@@ -31,7 +31,6 @@ if (!empty($array_data) && is_array($array_data)) {
     $pagination.='</ul>';
     $content = parseAdditional($content, $pagination);
 
-
     $start = ($curr_page - 1) * PICTURES_PER_PAGE; // 0
     $end = $count > ($curr_page*PICTURES_PER_PAGE) ? $curr_page*PICTURES_PER_PAGE : $count; // 4
 

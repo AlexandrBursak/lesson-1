@@ -1,22 +1,22 @@
 {
   "menu_1": {
     "title": "Home",
-    "link": "index.php"
+    "link": "?page=home"
   },
   "menu_2": {
     "title": "Contact Us",
-    "link": "contact.php"
+    "link": "?page=contact"
   },
   "menu_3": {
     "title": "Blog",
-    "link": "blog.php"
+    "link": "?page=blog"
   },
   "menu_4": {
     "title": "Testimonial",
-    "link": "testimonial.php"
+    "link": "?page=testimonial"
   },
   "menu_5": {
     "title": "Gallery",
-    "link": "gallery.php"
+    "link": "?page=gallery"
   }
 }
