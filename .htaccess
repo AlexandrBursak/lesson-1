@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteRule ^([a-zA-Z]+)-([0-9]+)\.html$ index.php?page=article&article_id=$2 [QSA,L]
+RewriteRule ^(.*)\.html$ index.php?page=$1 [QSA,L]
+

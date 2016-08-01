@@ -26,7 +26,7 @@ if (!empty($array_data) && is_array($array_data)) {
         if ($j == $curr_page) {
             $pagination .= '<li><span>' . $j . '</span></li>';
         } else {
-            $pagination .= '<li><a href="'.$full_page.'&cPag=' . $j . '">' . $j . '</a></li>';
+            $pagination .= '<li><a href="'.$full_page.'?cPag=' . $j . '">' . $j . '</a></li>';
         }
     }
     $pagination.='</ul>';

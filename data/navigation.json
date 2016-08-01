@@ -1,38 +1,38 @@
 {
   "menu_1": {
     "title": "Home",
-    "link": "?page=home"
+    "link": "home.html"
   },
   "menu_2": {
     "title": "Contact Us",
-    "link": "?page=contact"
+    "link": "contact.html"
   },
   "menu_3": {
     "title": "Blog",
-    "link": "?page=blog",
+    "link": "blog.html",
     "submenu": {
       "menu_1": {
         "title": "Home",
-        "link": "?page=home"
+        "link": "home.html"
       },
       "menu_2": {
         "title": "Contact Us",
-        "link": "?page=contact"
+        "link": "contact.html"
       }
     }
   },
   "menu_4": {
     "title": "Testimonial",
-    "link": "?page=testimonial"
+    "link": "testimonial.html"
   },
   "menu_5": {
     "title": "Gallery",
-    "link": "?page=gallery",
+    "link": "gallery.html",
     "access": 1
   },
   "menu_6": {
     "title": "Login",
-    "link": "?page=login",
+    "link": "login.html",
     "access": 0
   }
 }

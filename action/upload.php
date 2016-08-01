@@ -23,4 +23,4 @@ if ($messages) {
     $_SESSION['messages'] = $messages;
 }
 
-$redirect = '?page=gallery';
+$redirect = 'gallery.html';
