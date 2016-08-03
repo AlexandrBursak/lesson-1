@@ -1,4 +1,5 @@
 <?php
+error_reporting(8191);
 include_once('function.php');
 include_once('navigation.php');
 
@@ -12,7 +13,7 @@ if (isset($_SESSION['messages'])) {
 
 $content = '';
 if (!empty($_POST) && isset($_POST['page'])) {
-    $page = $_POST['page'];
+    $page = addslashes($_POST['page']);
     if (file_exists('./action/'.$page.'.php')) {
         include_once('./action/'.$page.'.php');
     }

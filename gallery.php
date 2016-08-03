@@ -35,9 +35,10 @@ if (!empty($array_data) && is_array($array_data)) {
     $end = $count > ($curr_page*PICTURES_PER_PAGE) ? $curr_page*PICTURES_PER_PAGE : $count; // 4
 
     for ($i = $start; $i < $end; $i++) {
+        $parse = explode('.', $array_data[$i]['file_name']);
         $content_gallery = '<div class="picture">
             <h3>'.$array_data[$i]['title'].'</h3>
-            <img src="./upload/'.$array_data[$i]['file_name'].'" width="300" />
+            <img src="img-'.$parse[0].'-extension-'.$parse[1].'?rand='.rand(1000,9999).'" width="300" />
         </div>';
         $content = parseAdditional($content, $content_gallery);
     }

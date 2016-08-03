@@ -21,6 +21,11 @@
       "title": "SEND",
       "name": "send",
       "type": "submit"
+    },
+    "field_5": {
+      "name": "page",
+      "type": "hidden",
+      "value": "contact"
     }
   }
 }
