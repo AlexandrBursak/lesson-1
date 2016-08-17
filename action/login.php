@@ -5,6 +5,7 @@ define('PASSWORD', 'admin');
 
 $redirect = 'login.html';
 $message = '';
+
 if (isset($_POST['login']) && isset($_POST['password'])) {
     if ($_POST['login'] == LOGIN) {
         if ($_POST['password'] == PASSWORD) {

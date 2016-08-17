@@ -1,0 +1,2 @@
+ALTER TABLE `pages` ADD `grant` TINYINT(1)  NULL  DEFAULT '0';
+

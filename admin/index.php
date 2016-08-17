@@ -1,7 +1,7 @@
 <?php
 
 include_once(__DIR__.'/core/function.php');
-include_once(__DIR__.'/core/DB.php');
+include_once(__DIR__.'/../core/DB.php');
 
 connect_db();
 

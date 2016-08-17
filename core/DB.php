@@ -1,15 +1,15 @@
 <?php
 
-define('DTBASE', 'lesson-1');
-define('USERNAME', 'root');
-define('PASSWORD', '');
-define('HOST', 'localhost');
+define('DB_DATABASE', 'lesson-1');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_HOST', 'localhost');
 
 $link = null;
 
 function connect_db() {
     global $link;
-    $link = mysqli_connect(HOST, USERNAME, PASSWORD, DTBASE);
+    $link = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     if (mysqli_connect_error()) {
         die('Ошибка подключения (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
     }

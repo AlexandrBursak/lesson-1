@@ -6,10 +6,5 @@ if (isset($_GET['action'])) {
     $action = 'index';
 }
 
-
-
 $function_name = $page.'_'.$action;
-
 $function_name();
-
-

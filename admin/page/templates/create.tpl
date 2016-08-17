@@ -5,6 +5,7 @@
         <label>Link: <input name="link" type="text" /></label>
         <label>Description: <textarea name="description"></textarea></label>
         <label>Active: <input type="checkbox" name="active" value="1" /></label>
+        <input name="grant" type="hidden" value="1" />
         <input type="submit" name="create" value="Create">
     </form>
 </div>
