@@ -3,8 +3,8 @@
 define('CURRENT_PAGE', 1);
 define('PER_PAGE', 2);
 
-function blog_index () {
-
+function blog_index ($page) {
+    do_default_model($page);
     $content = getPageContent();
     $blog_content = '';
 

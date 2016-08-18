@@ -1,6 +1,8 @@
 <?php
 
-function do_default_model () {
+function do_default_model ($page) {
+    global $navContent;
+    $navContent = createNavContent($page);
 }
 
 function getPageData ($page) {
@@ -11,3 +13,7 @@ function getPageData ($page) {
 function getPageContent () {
     return getTemplate();
 }
+
+//function getNavigation () {
+//    include_once(CORE_DIR.'library/navigation.php');
+//}

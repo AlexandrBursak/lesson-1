@@ -1,6 +1,7 @@
 <?php
 
-function contact_index () {
+function contact_index ($page) {
+    do_default_model($page);
     $content = getPageContent();
 
     $sql = "SELECT * FROM forms WHERE `group` = 'contact' ORDER BY field ASC";
