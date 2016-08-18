@@ -5,7 +5,7 @@ define('PER_PAGE', 2);
 
 function blog_index () {
 
-    $content = getTpl(__DIR__.'/templates/blog.tpl');
+    $content = getPageContent();
     $blog_content = '';
 
     $sql = "SELECT * FROM articles WHERE active = 1 ORDER BY date DESC";
@@ -48,6 +48,13 @@ function blog_index () {
     $blog_content .= $pagination($articles);
     $content = parseAdditional($content, $blog_content);
 
-
     return $content;
+}
+
+function blog_edit () {
+
+}
+
+function blog_view () {
+
 }

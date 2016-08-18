@@ -21,10 +21,10 @@ if (isset($messages)) {
 if (!empty($array_data) && is_array($array_data)) {
     $count = count($array_data);
 
-    $pagination = '<ul>';
+    $pagination = '<ul class="pagination">';
     for ($i=0, $j=1; $i < $count; $i+=PICTURES_PER_PAGE, $j++) {
         if ($j == $curr_page) {
-            $pagination .= '<li><span>' . $j . '</span></li>';
+            $pagination .= '<li class="active"><span>' . $j . '</span></li>';
         } else {
             $pagination .= '<li><a href="'.$full_page.'?cPag=' . $j . '">' . $j . '</a></li>';
         }
@@ -34,14 +34,16 @@ if (!empty($array_data) && is_array($array_data)) {
     $start = ($curr_page - 1) * PICTURES_PER_PAGE; // 0
     $end = $count > ($curr_page*PICTURES_PER_PAGE) ? $curr_page*PICTURES_PER_PAGE : $count; // 4
 
+    $content = parseAdditional($content, '<div class="row">');
     for ($i = $start; $i < $end; $i++) {
         $parse = explode('.', $array_data[$i]['file_name']);
-        $content_gallery = '<div class="picture">
+        $content_gallery = '<div class="col-md-6">
             <h3>'.$array_data[$i]['title'].'</h3>
-            <img src="img-'.$parse[0].'-extension-'.$parse[1].'?rand='.rand(1000,9999).'" width="300" />
+            <img src="img-'.$parse[0].'-extension-'.$parse[1].'?rand='.rand(1000,9999).'" width="300" class="img-thumbnail img-responsive" />
         </div>';
         $content = parseAdditional($content, $content_gallery);
     }
+    $content = parseAdditional($content, '</div>');
     $content = parseAdditional($content, $pagination);
 
 }

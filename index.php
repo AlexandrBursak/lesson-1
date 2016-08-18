@@ -1,11 +1,12 @@
 <?php
-error_reporting(8191);
-include_once(__DIR__.'/core/DB.php');
-include_once('function.php');
+//error_reporting(8191);
+define('CORE_DIR', __DIR__.'/');
+
+include_once(CORE_DIR.'core/DB.php');
+include_once(CORE_DIR.'core/core.php');
+include_once(CORE_DIR.'function.php');
 
 connect_db();
-
-include_once('library/navigation.php');
 
 $redirect = 'home.html';
 
@@ -16,35 +17,37 @@ if (isset($_SESSION['messages'])) {
 
 $mvc = false;
 $content = '';
+$page = '';
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
-    if (file_exists('./app/'.$page.'/'.$page.'_controller.php')) {
-        $mvc = true;
-        include('./app/'.$page.'/'.$page.'_controller.php');
-    }
+    include_once('library/navigation.php');
 }
 
+if (!empty($page)) {
+    $mvc = auto_include_file($page);
+    if (function_exists('do_controller')) {
+        $content = do_controller($page);
+    }
+}
 if ($mvc === false) {
     if (!empty($_POST) && isset($_POST['page'])) {
-        $page = addslashes($_POST['page']);
-        if (file_exists('./action/' . $page . '.php')) {
-            include_once('./action/' . $page . '.php');
+        $p_page = addslashes($_POST['page']);
+        if (file_exists('./action/' . $p_page . '.php')) {
+            include_once('./action/' . $p_page . '.php');
         }
     }
 
-    if (isset($_GET['page'])) {
-
-        $page = $_GET['page'];
+    if (!empty($page)) {
         if (file_exists('./' . $page . '.php')) {
             $full_page = $page . '.html';
             include_once('./' . $page . '.php');
         }
     }
-}
 
-if ($content == '') {
-    header('Location: '.$redirect);
-} else {
-    showContent($content);
+    if ($content == '') {
+        header('Location: '.$redirect);
+    } else {
+        showContent($content);
+    }
 }
 

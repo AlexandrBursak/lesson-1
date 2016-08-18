@@ -10,13 +10,22 @@ if ($_FILES['file']['error'] == 0) {
                 'file_name' => $_FILES['file']['name']
             );
             setNewFileInGallery($info_file);
-            $messages = '<div class="success">Thanks for your uploaded file!!!</div>';
+            $message = json_encode([
+                'status' => 'success',
+                'message' => 'Thanks for your uploaded file!!!'
+            ]);
         }
     } else {
-        $messages = '<div class="error">File didn\'t move</div>';
+        $message = json_encode([
+            'status' => 'error',
+            'message' => 'File didn\'t move'
+        ]);
     }
 } else {
-    $messages = '<div class="error">'.$phpFileUploadErrors[$_FILES['file']['error']].'</div>';
+    $message = json_encode([
+        'status' => 'error',
+        'message' => $phpFileUploadErrors[$_FILES['file']['error']]
+    ]);
 }
 
 if ($messages) {

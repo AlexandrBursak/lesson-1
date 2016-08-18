@@ -19,9 +19,15 @@ if (isset($_POST) and is_array($_POST)) {
     $mail->Body    = $_POST['message'];
 
     if($mail->send()) {
-        $messages = '<div class="success">Message has been sent</div>';
+        $message = json_encode([
+            'status' => 'success',
+            'message' => 'Message has been sent'
+        ]);
     } else {
-        $messages = '<div class="error">Message could not be sent.' . 'Mailer Error: ' . $mail->ErrorInfo . '</div>';
+        $message = json_encode([
+            'status' => 'error',
+            'message' => 'Message could not be sent.' . 'Mailer Error: ' . $mail->ErrorInfo
+        ]);
     }
 }
 if ($messages) {

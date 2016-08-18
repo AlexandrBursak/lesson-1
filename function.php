@@ -16,7 +16,7 @@ function getTpl ($file) {
 }
 
 function getTemplate() {
-    return file_get_contents('template.html');
+    return getTpl(__DIR__.'/template/template.tpl');
 }
 
 function parseNavigation($content, $data) {
@@ -30,8 +30,23 @@ function parseAdditional($content, $data) {
 }
 
 function parseMessages($content, $data) {
-    $content = str_replace("[messages]", $data, $content);
-    return $content;
+    if ($get = json_decode($data, TRUE)) {
+        switch ($get['status']) {
+            case 'error':
+                $message = <<<MESSAGE
+    <div class="alert alert-danger">{$get['message']}</div>
+MESSAGE;
+                break;
+            case 'success':
+            default:
+                $message = <<<MESSAGE
+    <div class="alert alert-success">{$get['message']}</div>
+MESSAGE;
+        }
+    } else {
+        $message = $data;
+    }
+    return str_replace("[messages]", $message, $content);
 }
 
 function parseContent($content, $data) {
@@ -43,41 +58,38 @@ function parseContent($content, $data) {
     return $content;
 }
 
-function showContent($content) {
-    echo $content;
-}
+//function showContent($content) {
+//    echo $content;
+//}
 
 function parseForm($content, $data, $action = '') {
     if ($action) {
         $action = ' action="' . $action . '"';
     }
-    $form = '<form method="post" class="form"'.$action.' enctype="multipart/form-data">';
+    $form = '<div class="form-group row"><form method="post" class="form col-sm-6"'.$action.' enctype="multipart/form-data">';
     foreach ($data as $value) {
         switch ($value['type']) {
             case 'password':
             case 'text':
             case 'file':
-                $form.= '<label>'.$value['title'].' <input name="'.$value['name'].'" type="'.$value['type'].'"></label>';
+                $form.= '<label>'.$value['title'].' <input name="'.$value['name'].'" type="'.$value['type'].'" class="form-control"></label>';
                 break;
             case 'hidden':
                 $form.= '<input name="'.$value['name'].'" type="'.$value['type'].'" value="'.$value['value'].'">';
                 break;
             case 'textarea':
-                $form.= '<label>'.$value['title'].' <textarea name="'.$value['name'].'"></textarea></label>';
+                $form.= '<label>'.$value['title'].' <textarea name="'.$value['name'].'" class="form-control"></textarea></label>';
                 break;
             case 'button':
             case 'submit':
-                $form.= '<input name="'.$value['name'].'" type="'.$value['type'].'">';
+                $form.= '<label><input name="'.$value['name'].'" type="'.$value['type'].'" class="btn btn-default"></label>';
                 break;
         }
     }
-    $form.= '</form>';
+    $form.= '</form></div>';
     $content = str_replace("[additional_content]", $form.'[additional_content]', $content);
     return $content;
 }
-//function getGalleryData($file) {
-//    $content = file_get_contents($file);
-//}
 
 function saveGallery($file, $gallery) {
     $fh = fopen($file, 'w+');
