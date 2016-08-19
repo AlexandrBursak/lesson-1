@@ -1,5 +1,5 @@
 <?php
-//error_reporting(8191);
+error_reporting(8191);
 define('CORE_DIR', __DIR__.'/');
 
 include_once(CORE_DIR.'core/DB.php');

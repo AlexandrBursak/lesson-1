@@ -42,7 +42,7 @@ function page_save () {
     $grant = $_POST['grant'];
     $active = isset($_POST['active']) ? 1 : 0;
 
-    $sql_inj = "SET title = '{$title}', link = '{$link}', description = '{$description}', active = {$active}, grant = {$grant}";
+    $sql_inj = "SET title = '{$title}', link = '{$link}', description = '{$description}', active = {$active}, `grant` = {$grant}";
 
     if (isset($_POST['id'])) {
         $id = $_POST['id'];
