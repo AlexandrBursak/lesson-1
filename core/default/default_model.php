@@ -14,6 +14,11 @@ function getPageContent () {
     return getTemplate();
 }
 
-//function getNavigation () {
-//    include_once(CORE_DIR.'library/navigation.php');
-//}
+function getMessages() {
+    if (isset($_SESSION['messages'])) {
+        $messages = $_SESSION['messages'];
+        unset($_SESSION['messages']);
+        return $messages;
+    }
+    return;
+}
