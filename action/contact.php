@@ -1,5 +1,5 @@
 <?php
-require 'thirdparty/PHPMailer/PHPMailerAutoload.php';
+require CORE_DIR.'thirdparty/PHPMailer/PHPMailerAutoload.php';
 
 if (isset($_POST) and is_array($_POST)) {
 

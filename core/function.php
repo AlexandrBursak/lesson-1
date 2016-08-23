@@ -20,14 +20,16 @@ function getTemplate() {
     return getTpl(CORE_DIR.'template/template.tpl');
 }
 
+function getManualTemplate($template) {
+    return getTpl(CORE_DIR.'template/'.$template);
+}
+
 function parseNavigation($content, $data) {
-    $content = str_replace("[navigation]", $data, $content);
-    return $content;
+    return str_replace("[navigation]", $data, $content);
 }
 
 function parseAdditional($content, $data) {
-    $content = str_replace("[additional_content]", $data.'[additional_content]', $content);
-    return $content;
+    return str_replace("[additional_content]", $data.'[additional_content]', $content);
 }
 
 function parseMessages($content, $data) {
@@ -52,9 +54,9 @@ MESSAGE;
 
 function parseContent($content, $data) {
     $content = str_replace("[messages]", '', $content);
-    $content = str_replace("[title_page]", 'Page: '.$data['title'], $content);
-    $content = str_replace("[title]", $data['title'], $content);
-    $content = str_replace("[description]", $data['description'], $content);
+    $content = str_replace("[title_page]", ($data['title'] ? 'Page: '.$data['title'] : ''), $content);
+    $content = str_replace("[title]", ($data['title'] ?: ''), $content);
+    $content = str_replace("[description]", ($data['description'] ?: ''), $content);
     $content = str_replace("[additional_content]", '', $content);
     return $content;
 }
@@ -85,6 +87,18 @@ function parseForm($content, $data, $action = '') {
     }
     $form.= '</form></div>';
     $content = str_replace("[additional_content]", $form.'[additional_content]', $content);
+    return $content;
+}
+
+function parseFormContent ($content, $data) {
+    foreach ($data as $key => $val) {
+        if ($key == 'active') {
+            $checked = $val ? 'checked' : '';
+            $content = str_replace('[form_' . $key . ']', $checked, $content);
+        } else {
+            $content = str_replace('[form_' . $key . ']', $val, $content);
+        }
+    }
     return $content;
 }
 

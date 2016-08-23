@@ -36,6 +36,12 @@ function DB_get_one($sql) {
     return [];
 }
 
+function DB_delete($sql) {
+    global $link;
+    $query = mysqli_query($link, $sql);
+    return $query ? true : false;
+}
+
 function DB_update($sql) {
     global $link;
     $query = mysqli_query($link, $sql);

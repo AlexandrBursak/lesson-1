@@ -1,10 +1,13 @@
 <?php
 
-$navContent = '';
+require CORE_DIR.'thirdparty/Twig/Autoloader.php';
+Twig_Autoloader::register();
 
-function auto_include_file ($page) {
+//$navContent = '';
+
+function auto_include_file ($page, $folder = '') {
     $onLoad = false;
-    $prefix = CORE_DIR . APP_DIR . $page . '/' . $page;
+    $prefix = CORE_DIR . APP_DIR . ( $folder ? $folder . '/' : '' ) . $page . '/' . $page;
     foreach (['controller','model','view'] as $key) {
         include_once(__DIR__.'/default/default_'.$key.'.php');
         if (file_exists($prefix . '_'.$key.'.php')) {

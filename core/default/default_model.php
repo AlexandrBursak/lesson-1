@@ -10,8 +10,12 @@ function getPageData ($page) {
     return DB_get_one($sql);
 }
 
-function getPageContent () {
-    return getTemplate();
+function getPageContent ($template = null) {
+    if ($template) {
+        return getManualTemplate($template);
+    } else {
+        return getTemplate();
+    }
 }
 
 function getMessages() {

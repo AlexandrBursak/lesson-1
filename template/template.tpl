@@ -28,10 +28,8 @@
     </script>
 </head>
 <body>
-<header class="row">
-    <nav class="col-sm-12">
-        [navigation]
-    </nav>
+<header>
+    [navigation]
 </header>
 <div class="row">
     <section class="col-md-12">
