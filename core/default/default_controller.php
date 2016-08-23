@@ -20,3 +20,10 @@ function getAction () {
     }
     return $action;
 }
+
+function has_admin_access () {
+    if (isset($_SESSION['user_access']) && is_numeric($_SESSION['user_access']) && $_SESSION['user_access'] >= 1) {
+        return true;
+    }
+    return false;
+}

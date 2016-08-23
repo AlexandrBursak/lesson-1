@@ -24,5 +24,5 @@ function getMessages() {
         unset($_SESSION['messages']);
         return $messages;
     }
-    return;
+    return false;
 }

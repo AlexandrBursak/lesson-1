@@ -63,7 +63,7 @@ function gallery_upload ($page) {
     global $phpFileUploadErrors;
     global $redirect;
 
-    $messages = '';
+    $message = '';
     if ($_FILES['file']['error'] == 0) {
         $file_destination = CORE_DIR.'upload/'.$_FILES['file']['name'];
         if (move_uploaded_file($_FILES['file']['tmp_name'], $file_destination)) {
@@ -93,9 +93,7 @@ function gallery_upload ($page) {
         ]);
     }
 
-    if ($message) {
-        $_SESSION['messages'] = $message;
-    }
+    saveMessage($message);
 
     $redirect = 'gallery.html';
     return;

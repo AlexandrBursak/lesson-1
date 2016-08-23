@@ -34,7 +34,7 @@
 <div class="row">
     <section class="col-md-12">
         <div class="container">
-            <article class="jumbotron">
+            <article>
                 <h1>[title]</h1>
                 [messages]
             </article>

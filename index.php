@@ -8,7 +8,7 @@ include_once(CORE_DIR.'core/core.php');
 include_once(CORE_DIR.'core/function.php');
 
 connect_db();
-$redirect = 'home.html';
+$redirect = CORE_PATH.'/home.html';
 
 $mvc = false;
 $content = '';
@@ -21,6 +21,9 @@ if (isset($_GET['page'])) {
 if (isset($_GET['folder'])) {
     $folder = $_GET['folder'];
 }
+//
+//dump($_GET);
+//die();
 
 if (!empty($page)) {
     $mvc = auto_include_file($page, $folder);

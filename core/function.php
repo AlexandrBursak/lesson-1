@@ -32,6 +32,13 @@ function parseAdditional($content, $data) {
     return str_replace("[additional_content]", $data.'[additional_content]', $content);
 }
 
+function saveMessage($data = null) {
+    if (isset($data)) {
+        $_SESSION['messages'] = $data;
+    }
+    return;
+}
+
 function parseMessages($content, $data) {
     if ($get = json_decode($data, TRUE)) {
         switch ($get['status']) {
@@ -100,23 +107,6 @@ function parseFormContent ($content, $data) {
         }
     }
     return $content;
-}
-
-function saveGallery($file, $gallery) {
-    $fh = fopen($file, 'w+');
-    $json_gallery = json_encode($gallery);
-    fwrite($fh, $json_gallery);
-    fclose($fh);
-}
-
-function setNewFileInGallery($data) {
-    $file_gallery = './data/data_gallery.json';
-    $gallery = getContent($file_gallery);
-    if (!is_array($gallery)) {
-        $gallery = array();
-    }
-    array_push($gallery, $data);
-    saveGallery($file_gallery, $gallery);
 }
 
 /**

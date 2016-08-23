@@ -63,6 +63,6 @@ function login_signin ($page) {
         ]);
     }
 
-    $_SESSION['messages'] = $message;
+    saveMessage($message);
     return;
 }

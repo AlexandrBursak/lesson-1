@@ -55,6 +55,27 @@ function blog_edit () {
 
 }
 
-function blog_view () {
+function blog_view ($page) {
+    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+        do_default_model($page);
+        $content = getPageContent();
 
+        $id = (int)$_GET['id'];
+        $sql = "SELECT * FROM articles WHERE active = 1 AND id = {$id}";
+        $article = DB_get_one($sql);
+        if (!empty($article)) {
+            $file = __DIR__ . '/templates/article.tpl';
+            $tpl = getTpl($file);
+            $tpl = str_replace("[article_title]", $article['title'], $tpl);
+            $tpl = str_replace("[article_date]", $article['date'], $tpl);
+            $tpl = str_replace("[article_author]", $article['author'], $tpl);
+            $tpl = str_replace("[article_text]", $article['text'], $tpl);
+            $tpl = str_replace("[article_url]", 'blog-' . ($id) . '.html', $tpl);
+
+            $content = parseAdditional($content, $tpl);
+            return $content;
+        }
+    }
+
+    return;
 }
