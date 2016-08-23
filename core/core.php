@@ -3,22 +3,17 @@
 require CORE_DIR.'thirdparty/Twig/Autoloader.php';
 Twig_Autoloader::register();
 
-//$navContent = '';
-
 function auto_include_file ($page, $folder = '') {
-    $onLoad = false;
     $prefix = CORE_DIR . APP_DIR . ( $folder ? $folder . '/' : '' ) . $page . '/' . $page;
     foreach (['controller','model','view'] as $key) {
         include_once(__DIR__.'/default/default_'.$key.'.php');
         if (file_exists($prefix . '_'.$key.'.php')) {
             include_once($prefix . '_'.$key.'.php');
-            $onLoad = true;
         } else {
             include_once(__DIR__.'/parent/_'.$key.'.php');
-            $onLoad = true;
         }
     }
-    return $onLoad;
+    return;
 }
 
 function autoload_function ($page, $action) {
